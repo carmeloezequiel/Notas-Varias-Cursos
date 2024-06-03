@@ -1,0 +1,5 @@
+Zenodo, herramienta correcta en escenarios donde no se cuente con los recursos necesarios para desplegar u administrar un servicio  de repositorios de datos.
+
+
+DOI te va a permitir llevar un historial de lo que has hecho. Digital Object Identifier. Zenodo es una plataforma que crea o alamcena DOIs. 
+
