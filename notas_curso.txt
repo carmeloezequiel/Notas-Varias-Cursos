@@ -1,0 +1,9 @@
+hola mundo 
+
+
+print(f"{z:,}") ---> puedes hacer print de una variable y separa los cada tres numeros con una ,.
+
+
+print(f"{z:.2f}") ---> para redondear, solo dos digitos despues de la coma.
+
+Si quiero poner un parametron por default puede hacerlo hello(x='word') si no le meto un parametro automáticamente toma el por default
