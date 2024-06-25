@@ -80,3 +80,16 @@ python name.py Carmelo Garcia
 si esto se ejecuta sys.argv = ['name.py','Carmelo'.'Garcia']
 
 sys.exit('mensaje') --> esta function interrumpe el programa y te da el mensaje en el terminal es como un print pero ademas te termina el programa
+
+------------------------------------File I/O------------------------------------------------------
+Si necesitamos guardar variable o datos de nuestro programa a un archivo aparte, ejemplo un archivo .txt. Podemos hacer uso de open.
+
+ejm:
+name = input("What's your name? ")
+
+file = open("names.txt", "r")
+file.write(name)
+file.close()
+
+Esto creara un archivo y escribira la variable name en el. Sin embargo, cada vez que corramos el programa el archivo se va a crear desde cero. Si queres que se agreguen los valores a un 			
+
