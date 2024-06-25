@@ -7,3 +7,76 @@ print(f"{z:,}") ---> puedes hacer print de una variable y separa los cada tres n
 print(f"{z:.2f}") ---> para redondear, solo dos digitos despues de la coma.
 
 Si quiero poner un parametron por default puede hacerlo hello(x='word') si no le meto un parametro automáticamente toma el por default
+
+
+Match  ---> funciona como if, elif, else. Pero es mas capacto y fácil de leer. 
+
+Ejemplo:
+
+match name:
+	case 'Harry'| 'Hermione' | 'Ron':
+		print('Gryffindor')
+	case 'Draco':
+		print(Slytherin')
+	case _:
+		print('who?')
+
+Esto funciona cuando le mete una variable llamada name, que en este caso es un string, y si se da el caso de que este string es Harry, Hermione o Ron entonces va a imprimir que son de Gryddindor, si es el caso de Draco entonces va a imprimir Slytherin. Y si no es un caso se;alado ósea necesitamos un elif, con match funciona como case _, esto es como un elif.
+
+Si haces un bucle con una variable que no usas puedes hacerla sin nombre
+
+for _ in range(3):
+	print("meow")
+
+podemos usar un loop while par verificar que la respuesta que queremos del usuario sea correcta
+
+ejemplo: 
+
+while True:
+	x = int(input("cual es n? "))
+	if x > 0:
+		break
+
+este es un loop infinito que solo se va a terminar cuando le das la respuesta que necesitas, en este caso un numero positivo.
+
+
+
+si sabemos que errores puede ocasionar un malfuncionamiento de nuestro código  podemos hacer una excepción de ese código. 
+
+ejemplo:
+
+try:
+	x = int(input( "x: "))
+except ValueError:
+	print("no es un entero")
+else:
+	print(f"x es {x}")
+
+escribp esto para hacer notar que el else también se puede usar en este tipo de situaciones, con este tipo de sintaxis. 
+
+El else esta asociado con el try, no con el except. Si el try funciona se produce el else si en su lugar funciona el except el código muere ahi
+
+
+------------------------------------------
+En la semana 4 Libraries.
+
+Se esta usando como ejmeplo la librería random. 
+
+se ha usado choice([]), randint(a,b), 
+shuffle([]) esta ultima baraja los elementos de una lista. 
+
+statistics.
+
+mean() ---> este es el promedio.
+
+sys
+
+sys.argv es una lista de las palabaras que colocas en el terminal cuando vas a correr el programa. Estas plabaras incluyen el nombre del programa
+
+ejemplo:
+
+python name.py Carmelo Garcia
+
+si esto se ejecuta sys.argv = ['name.py','Carmelo'.'Garcia']
+
+sys.exit('mensaje') --> esta function interrumpe el programa y te da el mensaje en el terminal es como un print pero ademas te termina el programa
