@@ -83,13 +83,119 @@ sys.exit('mensaje') --> esta function interrumpe el programa y te da el mensaje 
 
 ------------------------------------File I/O------------------------------------------------------
 Si necesitamos guardar variable o datos de nuestro programa a un archivo aparte, ejemplo un archivo .txt. Podemos hacer uso de open.
-
+ 
 ejm:
 name = input("What's your name? ")
 
-file = open("names.txt", "r")
+file = open("names.txt", "w")
 file.write(name)
 file.close()
 
-Esto creara un archivo y escribira la variable name en el. Sin embargo, cada vez que corramos el programa el archivo se va a crear desde cero. Si queres que se agreguen los valores a un 			
+Esto creara un archivo y escribira la variable name en el. Sin embargo, cada vez que corramos el programa el archivo se va a crear desde cero. Si queres que se agreguen los valores a un archivo existente en la ultima linea. Deberiamos cambiar el segundo argumento 'a' que significa append. entonces el codigo se vera asi
+
+file = open("names.txt", "a")
+file.write(f'{name}\n')
+file.close()
+
+por que necesitamos agragar una linea al fina? Debido a que cuando escribimos en el archivo una y otra vez las strings se van a concatenar entonces vamos a tener 'JesusMariaJose' y lo que queremos es 
+
+'Jesus
+Maria
+Jose'
+
+De esta forma es que lo lograremos, agregando una linea al final de cada innput. 
+
+Sin embargo, en esta forma de crear archivos se nos puede olvidar la linea file.close(). Esto puede traernos problemas. Pero, hay una forma de hacer los mismo de una manera mas compacta. Con with.
+
+Ejm.
+
+with open('name.txt', 'a') as file:
+	file.write(f'{name}\n')
+
+Esto hace lo mismo que hicimos antes y cierra automaticamente el archivo. Tambien es mas compacto y facil de leer.
+
+Ahora si quiero leer las lineas de este archivo que hemos creado. Podemos hacerlo de la siguiente forma:
+
+with open('name.txt','r') as file:
+	for line in file:
+		print(f'hellos, {line.rstrip()}')
+
+eso va a abrir el archivo, leer todas las lineas y imprimirals en el terminal. Tambien se puede aplicar metodos de python como sorted. 
+
+with open('name.txt','r') as file:
+	for line in sorted(file):
+		print(f'hellos, {line.rstrip()}')
+
+aqui no vas a devolver los nombres del archivo organizados alfabeticamente. 
+
+Dato curioso y util, sa funcion de python sorted() tiene un argumento que te permite usar funciones creadas por ti. Por ejemplo no puodemos aplicar sorted a un diccionario, pero podemos hacer una funcion que me devuelva un elemento de un diccionario ya sea una key o una value y eso si se puede organizar. 
+
+entonces quedaria algo asi sorted(dictionary, key=name_function)
+
+Para ahorrarno el tener que definir una funcion que solo vamos a usar dentro de sorted en otro lado del codigo. Podemos hacer uso de una forma de crear una funcion 'anonima' esta manera se llama lambda. funciona de la siguiente forma. 
+
+sorted(dictionary, key=lambda parametro: lo que hace la funcion)
+
+en el caso de hacer que me devuelva un value de un diccionario
+
+sorted(dictionary, key=lambda dictionary: dictionary['key'])
+
+Lectura y manejo de archivos csv. 
+
+Python tiene una libreria llamada csv que es bastante completa a la hora de leer y manejar estos archivos. 
+
+Lo podemos usar de la forma que ya conocemos
+
+import csv
+students= []
+with open('name.csv') as file:
+	reader = csv.reader(file)
+	for name, home in reader:
+		students.append({'name': name, 'home': home})
+
+este csv reader nos va a permitir leer de una manera mas eficiente un csv. Por ejemplo si queremos acceder a los datos separando cada linea con splip(',') entonces que pasa si queremos guardar una frase que incluye una coma. Entonces nuestro split va a cortar donde debe y donde no debe. Este tipo de cosa se resuelven usando csv. Claro y si quieres meter una frase que contenga comas, utiliza las comillas para delimitarla. 
+
+
+Tambien podemos ver a un csv como un excel con columnas y filas. De esta forma podriamos hacer que nuestra fila 0 sean los nombres de nuestra columna y poder interar los valores de cada columna con el nombre de la columna. Asi como lo hace un diccionario. Esto lo podemos hacer 
+
+import csv
+students= []
+with open('name.csv') as file:
+	reader = csv.DictReader(file)
+	for row in reader:
+		students.append({'name': row['name'], 'home': row['home']})
+
+
+
+El lector de diccionarios nos devuelve un diccionario. entonces nuestros valores estaran relacionados con el nombre de su columna y entonces mi codigo sera mas robisto porque no tengo que estar pendiente de en que posicion estan mis datos sino en como se llama la columna donde estan mis datos
+
+----Escribir CSV------
+
+con la libreria csv tambien podemos escribir en un archivo csv de manera eficiente. Hay varias formas pero veremos solo 2. 
+
+import csv
+
+name = input('What's your name? ')
+home = onput('Where's your home? ')
+
+with open('students.csv', 'a') as file:
+	writer = csv.wrtier(file)
+	writer.writerow([name, home])
+
+este programa va a preguntarnos por las variables name y home y las va a incluir en un archivo csv (creado previamente) en orden, primero name y luego home como lo dice la linea writer.writerow([name, home]). 
+
+Pero que pasa cuando tenemos muchas variables y queremos que esten asociadas a una columna especifica y queremos reorganizar las columnas de una manera distintita o no solo una forma mas eficiente y robusta de hacerlo es 
+
+import csv
+
+name = input('What's your name? ')
+home = onput('Where's your home? ')
+
+with open('students.csv', 'a') as file:
+	writer = csv.wrtier(file, fieldnames=['name','home'])
+	writer.writerow({'name': name, 'home': home})
+
+
+entonces con el argumento fieldname le decimos el nombres de las columnas de nuestro csv. y en writerow le pasamos el diccionario con los nombres de las columnas y las variables que queremos agregar.
+
 
