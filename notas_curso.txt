@@ -198,4 +198,18 @@ with open('students.csv', 'a') as file:
 
 entonces con el argumento fieldname le decimos el nombres de las columnas de nuestro csv. y en writerow le pasamos el diccionario con los nombres de las columnas y las variables que queremos agregar.
 
+-----------Regexes------------------------
+
+Toda la info y la sintaxis sobre Expresiones regulares en el siguiente enlace. 
+ https://www.w3schools.com/python/python_regex.asp
+
+
+
+
+
+
+
+
+
+
 
