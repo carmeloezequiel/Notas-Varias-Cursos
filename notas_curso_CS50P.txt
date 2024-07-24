@@ -204,6 +204,51 @@ Toda la info y la sintaxis sobre Expresiones regulares en el siguiente enlace.
  https://www.w3schools.com/python/python_regex.asp
 
 
+--------Object-Oriented Programming--------
+
+
+classes  es como un molde de un nuevo tipo de data que el programador puede definir y diseñar. Las classes tienen atributos. Estos atributos pueden ser usados con puntos.
+
+ejm: class_name.attribute
+
+se usa similar a las funciones. 
+
+class class_name:
+	...
+
+cuando usamos una class, estamos creado un objeto. Si usamos la metafora de que una classe es como un molde de una casa, entonces un objeto es cuando usas ese molde para construir una casa en particular.
+
+Tambien podemos tener dentro de una class metodos. que son como una funcion que podemos definir dentro de una clase para que el objeto se comporte de una manera predefinida. 
+
+Para el ejmplo vamos a usar la class hecha en la clase. 
+
+class Student:
+	def __init__(self, name, house):
+		self.name = name
+		self.house = house
+
+Entonces en esta clase tenemos una funcion llamada __init__, esta funcion es por defecto inicializa un objeto en python. tenemos un parametro necesario que puede ser cualquier palabra que tiene que ir primero y que por convencion es self. Este 'self' ayuda a 'guardar' en el objeto que acabamos de instanciar, self te da acceso a objeto que acabamos de crear. Entonces dentro del objeto se hizo self.name y self.house y esto es que estamos creando los atributos de este objeto. 
+
+Como estamos creando un nuevo tipo de dato a nuestra conveniencia, si hay un problema con los datos y no es algo que toleramos podemos hacer uso del raise y asi si hay un parametro que no nos gusta el objeto dara error. 
+
+
+class Student:
+	def __init__(self, name, house):
+		if no name:
+			raise ValueError('Missing name')
+		if house no in ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin']:
+			raise ValueError('Invalid House')
+		self.name = name
+		self.house = house
+
+
+
+
+
+
+
+
+
 
 
 
