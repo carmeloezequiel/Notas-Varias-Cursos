@@ -325,6 +325,40 @@ los argumentos description y help, se usan para que si haces python meow.py -h
  el programa te explique cuales son los argumentos que recibe y que hace. 
 
 
+----unpacking data -------
+
+Si tenemos una funcion que recibe varios argumentos, podemos guardar esos argumentos en listas o en diccionarios para que cuando llamemos a esa funcion le metamos la lista o el diccionario y ella sepa que son los parametros. Ejemplo 
+
+si tenemos esta funcion que recibe 3 argumentos:
+
+def total(galleons, stickles, knuts):
+	return (galleons*17 + stickles) * 29 + knuts
+
+podemos usar esta funcion de la siguiente forma
+
+total(100, 50, 25) #esto funcionara
+
+pero si tenemos la data de esta forma
+
+coins = [100,50,25]
+
+podemos usar la funcion de la siguiente forma
+
+total(*coins) y funcionara porque hara el unpaking de la lista y eso sera equivalente a total(100, 50, 25).
+
+Tambien podemos hacer lo mismo con un diccionario. 
+
+coins ={"galleons":100,"stickles":50,"knuts":25}
+
+podemos usar la funcion de la siguiente manera: 
+
+tatal(**coins) y esto sera equivalente a tatal(galleons=100, stickles=50, knuts=25)
+
+entonces para hacer unpacking de diccionarios se usan dos asteriscos ** y para listas se usan uno solo *.
+
+advertencia: si la lista tiene mas o menos elementos de los parametros que necesita la funcion, la funcion no va a funcionar porque no le estas dando los parametros que necesita. Tambien la lista o diccionario debe estar ordenada. en este caso primero los galleos luego los stickles y por ultimo los knots
+
+
 
 
 
