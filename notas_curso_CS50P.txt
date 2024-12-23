@@ -288,6 +288,14 @@ def main():
 
 	
 
+herramienta para detectar errores. 
+pip install mypy 
+
+en c cuando declaras una variable, le dices que tipo de varaible es, por el contrario en python, la varaible puede tomar cualquier tipo de datos. Esto puede llevar a errores de compilacion. Si queremos dectectar esto esrrore, mypy chequea los tipos de variables que estas usando y te dice cual no esta siendo declarada con el tipo correcto de datos. 
+
+Se usa de la siguiente manera. En el terminal escribes mypy scritname.py 
+
+esto te dara la lista de errores que tiene 
 
 
 
