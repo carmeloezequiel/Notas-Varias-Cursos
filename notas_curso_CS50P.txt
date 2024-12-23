@@ -242,6 +242,24 @@ class Student:
 		self.house = house
 
 
+--------Et Cetera------------------------------
+
+1) set
+
+set --> es un objeto que funciona como una lista pero elimina los duplicados. 
+
+set_name = set() ---> instanciando un set vacio.
+
+
+2) global variables
+
+una variable que esta declarada afuera de todas las fucniones es una variable 'global'. Las funciones o las clases pueden leerla pero no escribir en ellas. Por eso debemos decirle a las funciones y a las clases que la variable es una variable global. Ejm
+
+blance = 0 
+
+def main():
+
+
 
 
 
