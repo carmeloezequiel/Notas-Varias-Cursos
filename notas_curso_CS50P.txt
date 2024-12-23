@@ -258,7 +258,35 @@ una variable que esta declarada afuera de todas las fucniones es una variable 'g
 blance = 0 
 
 def main():
+	doposit(100)
+	print("Balance:",balance)
 
+def deposit(n):
+	global balance #aqui le estamos diciendo que balance es una varaible global y si la edita se edita globalmente.
+	balance += n
+
+Sin embargo esta forma de programar se puede volver dificil de leer o entenerde porque va a llegar un punto donde no se sabra donde se esta almacenando la infromacion. Una manera de prevenir esto, es no usar esta forma y usar las clases y asi empaquetar toda la info y las funciones que necesitamos. ejemplo
+
+
+class Account:
+	def __init__(self):
+		self._balance = 0
+	@property
+	def balance(self):
+		return self._balance
+	def deposit(self, n):
+		self.balance += n
+	def withdraw(self,n):
+		self._balance -= n
+def main():
+	account = Account()
+	account.deposit(100)
+	print("balance", account.balance)
+	account.withdraw(50)
+	print("balance", account.balance)
+
+
+	
 
 
 
