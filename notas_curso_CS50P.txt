@@ -359,6 +359,11 @@ entonces para hacer unpacking de diccionarios se usan dos asteriscos ** y para l
 advertencia: si la lista tiene mas o menos elementos de los parametros que necesita la funcion, la funcion no va a funcionar porque no le estas dando los parametros que necesita. Tambien la lista o diccionario debe estar ordenada. en este caso primero los galleos luego los stickles y por ultimo los knots
 
 
+-----yield------
+
+cuando una funcion retorna una cantidad demasiado grande de datos de una vez, ejemplo que los genera los guarda en una lista y luego te los muestra. Esto puede llevar a que se te llene la memoria de la maquina y el programa deje de funcionar. Sin embargo, podemos resolver este problema para que en vez de que guarde todo y lo muestre, me vaya mostrando lo que va generando. asi tipo streaming. Esto se logra intercambiando la palabra return con yield. 
+
+
 
 
 
