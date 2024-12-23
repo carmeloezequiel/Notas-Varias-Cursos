@@ -298,6 +298,33 @@ Se usa de la siguiente manera. En el terminal escribes mypy scritname.py
 esto te dara la lista de errores que tiene 
 
 
+---- argparse ---
+
+cuando queremos daler uso a nuestro programa desde su lanzamiendo en la terminal. Ejemplo: 
+
+python meow.py -n 6 
+
+le estamos dando argumentos desde que lo lanzamos. vemos que -n es un argumento que le dice lo que debe hacer. Ademas tu programa puede tener varios de estos tipos de argumentos, y se deben programar de la siguiente manera. 
+
+import argparse
+
+parser = arparse.ArgumentParser(description="Meow like a cat")
+parser.add_argument("-n", default=1, help="number of meows", type=int)
+arg = parser.parse_args() #esto va a guardar lo que acomapaña al argumento que seteamos antes, en este caso"-n".
+
+for _ in range(args.n):
+	print("meow")
+
+Entonces cuando lancemos el progama desde terminal, 
+
+python meow.py -n 3 
+
+el programa retornanara 3 meows. 
+
+los argumentos description y help, se usan para que si haces python meow.py -h 
+ el programa te explique cuales son los argumentos que recibe y que hace. 
+
+
 
 
 
